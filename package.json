@@ -1,5 +1,5 @@
 {
-  "name": "cloudinary-api",
+  "name": "express-ts-base",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
