@@ -1,5 +1,6 @@
 require('dotenv').config()
 import path from 'path'
+import cors from 'cors'
 import csrf from 'csurf'
 import express from 'express'
 import nunjucks from 'nunjucks'
@@ -13,7 +14,7 @@ const port = process.env.PORT || 3000
 
 // API handler
 app.use(bodyParser.urlencoded({ extended: false })).use(bodyParser.json())
-app.use('/api', apiRouter)
+app.use('/api', cors(), apiRouter)
 
 // Static Files
 app.use('/public', express.static(path.join(__dirname, '../public')))
@@ -24,7 +25,7 @@ nunjucks.configure('views', {
   express: app,
 })
 
-// Web routes
+// Web routes with csrf support
 app.use(cookieParser())
 app.use(csrf({ cookie: true }))
 app.use(webRouter)
