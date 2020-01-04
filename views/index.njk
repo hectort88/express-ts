@@ -8,9 +8,14 @@
 </head>
 <body>
   <form action="/" method="POST">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
     <input type="text" name="texto">
     <button type="submit">Enviar</button>
   </form>
+  {% if errors %}
+    {% for error in errors %}
+    <span class="error">{{ error }}</span>
+    {% endfor %}
+  {% endif %}
 </body>
 </html>
