@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run serve",
-    "build": "npm run build-ts && npm run lint",
+    "build": "npm run build-ts",
     "serve": "nodemon dist/server.js -e njk,js,css",
     "build-ts": "tsc",
     "watch": "tsc -w",
